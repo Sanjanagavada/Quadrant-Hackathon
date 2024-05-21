@@ -26,17 +26,6 @@ Welcome to the FreshMart Grocery QR Code Project! This project aims to enhance t
 
 
 
-## Directory Structure
-
-freshmart-grocery-qr/
-│
-├─>app.py
-├─> templates/
-│   ├──> index.html
-│   └──> product.html
-└──> static/
-    ├──> styles.css
-    └──> background.jpg
 
 
 ## Contact

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Shopping with QR Codes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart Shopping with QR Codes</h1>
+    <h2> FreshMart Grocery</h2>
+    <div id="products">
+        {% for product_id, product in products.items() %}
+            <div class="product">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <button onclick="generateQRCode('{{ product_id }}')">Generate QR Code</button>
+                <div id="qr-{{ product_id }}" class="qr-code"></div>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        function generateQRCode(productId) {
+            fetch(`/generate_qr/${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const qrCodeDiv = document.getElementById(`qr-${productId}`);
+                    qrCodeDiv.innerHTML = `<img src="data:image/png;base64,${data.qr_code}" alt="QR Code"><p>${data.product.name}</p>`;
+                });
+        }
+    </script>
+</body>
+</html>

@@ -30,13 +30,13 @@ Welcome to the FreshMart Grocery QR Code Project! This project aims to enhance t
 
 freshmart-grocery-qr/
 │
-├── app.py
-├── templates/
-│   ├── index.html
-│   └── product.html
-└── static/
-    ├── styles.css
-    └── background.jpg
+├─>app.py
+├─> templates/
+│   ├──> index.html
+│   └──> product.html
+└──> static/
+    ├──> styles.css
+    └──> background.jpg
 
 
 ## Contact
